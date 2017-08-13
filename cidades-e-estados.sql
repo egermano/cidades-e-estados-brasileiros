@@ -9467,3 +9467,4 @@ INSERT INTO `estados` VALUES (1, 'Acre', 'AC'),
 --
 ALTER TABLE `cidades`
   ADD CONSTRAINT `fk_cidades_estados1` FOREIGN KEY (`estados_id`) REFERENCES `estados` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
