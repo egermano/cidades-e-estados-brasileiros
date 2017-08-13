@@ -27,30 +27,30 @@ CREATE TABLE `estados` (
 -- Dumping data for table `estados`
 --
 
-INSERT INTO `estados` VALUES(1, 'Acre', 'AC');
-INSERT INTO `estados` VALUES(2, 'Alagoas', 'AL');
-INSERT INTO `estados` VALUES(3, 'Amazonas', 'AM');
-INSERT INTO `estados` VALUES(4, 'Amapá', 'AP');
-INSERT INTO `estados` VALUES(5, 'Bahia', 'BA');
-INSERT INTO `estados` VALUES(6, 'Ceará', 'CE');
-INSERT INTO `estados` VALUES(7, 'Distrito Federal', 'DF');
-INSERT INTO `estados` VALUES(8, 'Espírito Santo', 'ES');
-INSERT INTO `estados` VALUES(9, 'Goiás', 'GO');
-INSERT INTO `estados` VALUES(10, 'Maranhão', 'MA');
-INSERT INTO `estados` VALUES(11, 'Minas Gerais', 'MG');
-INSERT INTO `estados` VALUES(12, 'Mato Grosso do Sul', 'MS');
-INSERT INTO `estados` VALUES(13, 'Mato Grosso', 'MT');
-INSERT INTO `estados` VALUES(14, 'Pará', 'PA');
-INSERT INTO `estados` VALUES(15, 'Paraíba', 'PB');
-INSERT INTO `estados` VALUES(16, 'Pernambuco', 'PE');
-INSERT INTO `estados` VALUES(17, 'Piauí', 'PI');
-INSERT INTO `estados` VALUES(18, 'Paraná', 'PR');
-INSERT INTO `estados` VALUES(19, 'Rio de Janeiro', 'RJ');
-INSERT INTO `estados` VALUES(20, 'Rio Grande do Norte', 'RN');
-INSERT INTO `estados` VALUES(21, 'Rondônia', 'RO');
-INSERT INTO `estados` VALUES(22, 'Roraima', 'RR');
-INSERT INTO `estados` VALUES(23, 'Rio Grande do Sul', 'RS');
-INSERT INTO `estados` VALUES(24, 'Santa Catarina', 'SC');
-INSERT INTO `estados` VALUES(25, 'Sergipe', 'SE');
-INSERT INTO `estados` VALUES(26, 'São Paulo', 'SP');
-INSERT INTO `estados` VALUES(27, 'Tocantins', 'TO');
+INSERT INTO `estados` VALUES (1, 'Acre', 'AC'),
+(2, 'Alagoas', 'AL'),
+(3, 'Amazonas', 'AM'),
+(4, 'Amapá', 'AP'),
+(5, 'Bahia', 'BA'),
+(6, 'Ceará', 'CE'),
+(7, 'Distrito Federal', 'DF'),
+(8, 'Espírito Santo', 'ES'),
+(9, 'Goiás', 'GO'),
+(10, 'Maranhão', 'MA'),
+(11, 'Minas Gerais', 'MG'),
+(12, 'Mato Grosso do Sul', 'MS'),
+(13, 'Mato Grosso', 'MT'),
+(14, 'Pará', 'PA'),
+(15, 'Paraíba', 'PB'),
+(16, 'Pernambuco', 'PE'),
+(17, 'Piauí', 'PI'),
+(18, 'Paraná', 'PR'),
+(19, 'Rio de Janeiro', 'RJ'),
+(20, 'Rio Grande do Norte', 'RN'),
+(21, 'Rondônia', 'RO'),
+(22, 'Roraima', 'RR'),
+(23, 'Rio Grande do Sul', 'RS'),
+(24, 'Santa Catarina', 'SC'),
+(25, 'Sergipe', 'SE'),
+(26, 'São Paulo', 'SP'),
+(27, 'Tocantins', 'TO');
