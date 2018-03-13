@@ -5,7 +5,7 @@ before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS cideades_e_estados;'  
   - mysql -u root --default-character-set=utf8 cideades_e_estados < src/cidades-e-estados.sql
   - mysql -e 'USE cideades_e_estados; DROP TABLE cidades; DROP TABLE estados;'  
-  - mysql -u root --default-character-set=utf8 cideades_e_estados < src/cidades.sql
   - mysql -u root --default-character-set=utf8 cideades_e_estados < src/estados.sql
+  - mysql -u root --default-character-set=utf8 cideades_e_estados < src/cidades.sql
 script:
   - node -v
