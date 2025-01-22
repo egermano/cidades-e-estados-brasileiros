@@ -1,0 +1,31 @@
+name: Validations
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: SQL Lint
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: yu-iskw/action-sqlfluff@v4
+        id: lint-sql
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          sqlfluff_version: "3.2.5"
+          sqlfluff_command: "lint"
+          paths: "${{ github.workspace }}/src"
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
