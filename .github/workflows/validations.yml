@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  sql:
     runs-on: ubuntu-latest
     name: SQL Validations
    
@@ -39,3 +39,20 @@ jobs:
           mysql -h 127.0.0.1 -e 'USE ${{env.DB_DATABASE}}; DROP TABLE cidades; DROP TABLE estados;' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
           mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < sql/estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
           mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < sql/cidades.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+  json:
+    runs-on: ubuntu-latest
+    name: JSON Validations
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Lint JSON files
+        run: |
+          for file in $(find ./json -name "*.json"); do
+            echo "Checking $file"
+            jq empty "$file" || exit 1
+          done
