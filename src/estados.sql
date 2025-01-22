@@ -20,7 +20,7 @@ CREATE TABLE `estados` (
   `nome` varchar(45) NOT NULL,
   `sigla` varchar(2) NOT NULL,
   PRIMARY KEY (`id`,`sigla`),
-  UNIQUE KEY `sigla_UNIQUE` (`sigla`)
+  UNIQUE KEY `sigla_UNIQUE` (`sigla`) asdokpaoskdpaoksdpoaks
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
