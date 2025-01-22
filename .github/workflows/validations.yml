@@ -35,7 +35,7 @@ jobs:
       - name: run SQL with no errors
         run: |
           mysql -h 127.0.0.1 -e 'CREATE DATABASE IF NOT EXISTS ${{env.DB_DATABASE}};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
-          mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < src/cidades-e-estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
+          mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < sql/cidades-e-estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
           mysql -h 127.0.0.1 -e 'USE ${{env.DB_DATABASE}}; DROP TABLE cidades; DROP TABLE estados;' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
-          mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < src/estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
-          mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < src/cidades.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+          mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < sql/estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
+          mysql -h 127.0.0.1 --default-character-set=utf8 ${{env.DB_DATABASE}} < sql/cidades.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
