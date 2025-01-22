@@ -5,6 +5,18 @@ on:
   pull_request:
   workflow_dispatch:
 
+services:
+  mysql:
+    image: mysql:5.7
+    env:
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - 33306:3306
+    options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,5 +26,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: Bidaya0/sql-lint-in-action@v0.0.3
+
+      # {"host":"","user":"root","password":"","driver":"mysql","port":3306,"ignore-errors":[]}
         with:
+          host: localhost
+          user: user
+          password: password
           path: "${{ github.workspace }}/src"
