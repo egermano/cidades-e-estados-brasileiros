@@ -1,6 +1,6 @@
 # Base de Cidades e Estados Brasileiros
 
-📄 [English README](README-us.md)
+📄 [English README](README-EN.md)
 
 Este repositório contém uma base de dados com cidades e estados brasileiros em formato SQL e JSON. Embora os arquivos estejam em formato de `INSERTS` para MySQL, eles podem ser adaptados para qualquer banco de dados compatível com SQL.
 
