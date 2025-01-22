@@ -8,28 +8,32 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: SQL Lint
+    name: SQL Validations
 
     services:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_DATABASE: test_db
+          MYSQL_DATABASE: cideades_e_estados
           MYSQL_USER: user
           MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: rootpassword
         ports:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    env:
+      DB_DATABASE: cideades_e_estados
+      DB_USER: root
+      DB_PASSWORD: rootpassword
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Bidaya0/sql-lint-in-action@v0.0.3
-
-      # {"host":"","user":"root","password":"","driver":"mysql","port":3306,"ignore-errors":[]}
-        with:
-          host: localhost
-          user: user
-          password: password
-          path: "${{ github.workspace }}/src"
+      - name: run SQL with no errors
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE IF NOT EXISTS cideades_e_estados;' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+          mysql --default-character-set=utf8 cideades_e_estados < src/cidades-e-estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
+          mysql -e 'USE cideades_e_estados; DROP TABLE cidades; DROP TABLE estados;' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
+          mysql --default-character-set=utf8 cideades_e_estados < src/estados.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} 
+          mysql --default-character-set=utf8 cideades_e_estados < src/cidades.sql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
