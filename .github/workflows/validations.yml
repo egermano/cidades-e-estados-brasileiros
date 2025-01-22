@@ -16,8 +16,3 @@ jobs:
       - uses: Bidaya0/sql-lint-in-action@v0.0.1
         with:
           paths: "${{ github.workspace }}/src"
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
